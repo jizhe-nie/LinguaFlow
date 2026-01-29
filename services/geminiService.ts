@@ -151,12 +151,9 @@ export const generateSpeech = async (text: string): Promise<string | null> => {
   try {
     const response = await ai.models.generateContent({
       model,
-      contents: {
-        role: "user",
-        parts: [{ text: text }]
-      },
+      contents: [{ parts: [{ text: text }] }],
       config: {
-        responseModalities: ["AUDIO" as Modality],
+        responseModalities: [Modality.AUDIO],
         speechConfig: {
           voiceConfig: {
             prebuiltVoiceConfig: { voiceName: 'Kore' },
@@ -172,7 +169,7 @@ export const generateSpeech = async (text: string): Promise<string | null> => {
     }
     return base64Audio;
   } catch (e) {
-    console.error("Failed to generate speech", e);
+    console.error("Failed to generate speech", JSON.stringify(e, null, 2));
     return null;
   }
 };

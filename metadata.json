@@ -1,0 +1,5 @@
+{
+  "name": "LinguaFlow - AI English Tutor",
+  "description": "An Android-styled language learning web application focusing on English vocabulary building and context-based reinforcement using AI-generated stories. Features a bilingual (EN/CN) interface.",
+  "requestFramePermissions": []
+}
